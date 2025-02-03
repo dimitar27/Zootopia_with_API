@@ -10,17 +10,19 @@ def load_data(file_path):
 animals_data = load_data('animals_data.json')
 
 
-output = ""
+output = "" # define an empty string
 for animal in animals_data:
-    output += f"Name {animal['name']}\n"
-    output += f"Diet: {animal['characteristics']['diet']}\n"
-    output += f"Location: {animal['locations'][0]}\n"
+    # append information to each string
+    output += '<li class="cards__item">'
+    output += f"Name {animal['name']}<br/>\n"
+    output += f"Diet: {animal['characteristics']['diet']}<br/>\n"
+    output += f"Location: {animal['locations'][0]}<br/>\n"
 
     if animal['characteristics'].get('type') is None:
         output += "\n"
         continue
     else:
-        output += f"Type: {animal['characteristics'].get('type')}\n"
+        output += f"Type: {animal['characteristics'].get('type')}<br/>\n"
 
     output += "\n"
 

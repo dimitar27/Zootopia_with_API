@@ -18,6 +18,17 @@ Clone this repository to your local environment, then use `pip` to install all t
 
 ## Usage
 
+After cloning the repository:
+
+1. Create a `.env` file in the root directory of the project.
+2. Add your API key to the `.env` file like this:
+
+   ```
+   API_KEY=your_api_key_here
+   ```
+
+Make sure to replace `your_api_key_here` with your actual API key from [api-ninjas.com](https://api-ninjas.com/).
+
 To use this project, run the following command:
 ```bash
 python animals_web_generator.py

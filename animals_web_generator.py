@@ -1,7 +1,7 @@
 import data_fetcher
 
 def serialize_animal(animal_obj):
-    """ Handles serialization of a single animal object into HTML. """
+    """Handles serialization of a single animal object into HTML."""
     output = "" # define an empty string
     output += '<li class="cards__item">'
     output += f'<div class="card__title">{animal_obj["name"]}</div>'
@@ -19,6 +19,7 @@ def serialize_animal(animal_obj):
 
 
 def animal_not_found(animal_name):
+    """Returns an HTML message indicating the animal was not found."""
     return (
         f"<h2 style = 'color: #696969;font-weight: 400;'> "
         f"The animal {animal_name} doesn't exist.</h2>"

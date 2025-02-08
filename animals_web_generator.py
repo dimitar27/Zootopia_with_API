@@ -3,13 +3,14 @@ import requests
 API_KEY = "FuF6U+IVQEQQFEuS9cfH0g==jkMXxC0hPbETw9P6"
 URL = f"https://api.api-ninjas.com/v1/animals"
 
-def load_data(url):
+def load_data(url, animal_name):
   """ Loads a JSON file """
   headers = {"X-Api-Key": API_KEY}
-  params = {"name": "fox"}
+  params = {"name": animal_name}
   response = requests.get(url, headers=headers, params=params)
   response.encoding = "utf-8"
   data = response.json()
+  print("Website was successfully generated to the file animals.html.")
   return data
 
 
@@ -32,7 +33,8 @@ def serialize_animal(animal_obj):
 
 
 def main():
-    animals_data = load_data(URL)
+    animal_name = input("Enter a name of an animal: ")
+    animals_data = load_data(URL, animal_name)
 
     output = ''
     for animal_obj in animals_data:

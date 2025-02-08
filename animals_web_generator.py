@@ -1,19 +1,4 @@
-import requests
-
-
-API_KEY = "FuF6U+IVQEQQFEuS9cfH0g==jkMXxC0hPbETw9P6"
-URL = f"https://api.api-ninjas.com/v1/animals"
-
-
-def load_data(url, animal_name):
-  """ Loads a JSON file """
-  headers = {"X-Api-Key": API_KEY}
-  params = {"name": animal_name}
-  response = requests.get(url, headers=headers, params=params)
-  response.encoding = "utf-8"
-  data = response.json()
-  return data
-
+import data_fetcher
 
 def serialize_animal(animal_obj):
     """ Handles serialization of a single animal object into HTML. """
@@ -54,7 +39,7 @@ def update_html_template(animal_info):
 
 def main():
     animal_name = input("Enter a name of an animal: ")
-    animals_data = load_data(URL, animal_name)
+    animals_data = data_fetcher.fetch_data(animal_name)
 
     if not animals_data:
         animal_info =  animal_not_found(animal_name)
